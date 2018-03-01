@@ -23,6 +23,7 @@ resource_types:
   question in jenkins, and copy the url. (Not everything is a job; you'll know
   you're in the right place if you see a "Build Now" or "Build with Parameters"
   link. A correct path will look like `/job/subdir/job/otherdir/job/my-cool-job`)
+* `protocol`: *Optional.* Defaults to `https`, use this if your jenkins runs on `http`
 
 ## Behavior
 

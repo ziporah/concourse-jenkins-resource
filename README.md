@@ -103,3 +103,11 @@ jobs:
     params:
         buildParams: buildType=full&bestAnimal=cat
 ```
+
+## Building
+
+```
+$ docker build -t concourse-jenkins-resource .
+$ docker tag concourse-jenkins-resource krakendev/concourse-genkins-resource:v0.9
+$ docker push krakendev/concourse-genkins-resource:v0.9
+```

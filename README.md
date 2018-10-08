@@ -107,7 +107,8 @@ jobs:
 ## Building
 
 ```
+$ docker login harbor-docker-registry-dev.gp2.axadmin.net -u <<DOCKER_USER>> -p <<DOCKER_PASSWORD>>
 $ docker build -t concourse-jenkins-resource .
-$ docker tag concourse-jenkins-resource krakendev/concourse-genkins-resource:v0.9
-$ docker push krakendev/concourse-genkins-resource:v0.9
+$ docker tag concourse-jenkins-resource harbor-docker-registry-dev.gp2.axadmin.net/identifix_cms/concourse-jenkins-resource:v0.9
+$ docker push harbor-docker-registry-dev.gp2.axadmin.net/identifix_cms/concourse-jenkins-resource:v0.9
 ```

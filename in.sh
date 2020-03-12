@@ -18,7 +18,7 @@ job_url="${SMUGGLER_protocol:-https}://${SMUGGLER_host}${port}${SMUGGLER_job}"
 
 while true; do
   set -x
-  curl -sS --max-time 10 --retry 3 --user "${SMUGGLER_user}:${SMUGGLER_pass}" -X POST -H "$JENKINS_CRUMB" -H "Content-Type: text/xml" -n "${job_url}/${SMUGGLER_VERSION_ID}/api/json" > "${SMUGGLER_DESTINATION_DIR}/raw"
+  curl -sS --max-time 10 --retry 3 --user "${SMUGGLER_user}:${SMUGGLER_pass}" -X POST -d "" -H "$JENKINS_CRUMB" -H "Content-Type: text/xml" -n "${job_url}/${SMUGGLER_VERSION_ID}/api/json" > "${SMUGGLER_DESTINATION_DIR}/raw"
   set +x
 
   jq -r '.result' < "${SMUGGLER_DESTINATION_DIR}/raw" > "${SMUGGLER_DESTINATION_DIR}"/result

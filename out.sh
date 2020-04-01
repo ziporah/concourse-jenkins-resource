@@ -18,7 +18,12 @@ job_url="${SMUGGLER_protocol:-https}://${SMUGGLER_host}${port}${SMUGGLER_job}"
 
 if [[ -n "${SMUGGLER_buildParams:-}" ]]; then
   set -x
-  curl -sS -X POST -G -D headers --max-time 10 --retry 3 --user "${SMUGGLER_user}:${SMUGGLER_pass}" -H "$JENKINS_CRUMB" -H "Content-Type: text/xml" -n "${job_url}/buildWithParameters" -d "${SMUGGLER_buildParams}" 
+  curl -sS -X POST -G -D headers --max-time 10 --retry 3 \
+    --user "${SMUGGLER_user}:${SMUGGLER_pass}" -H "$JENKINS_CRUMB" \
+    -H "Content-Type: text/xml" \
+    -H "Content-Length: 0" \
+    -n "${job_url}/buildWithParameters" \
+    -d "${SMUGGLER_buildParams}" 
   set +x
 else
   set -x
